@@ -1,5 +1,12 @@
 ### 8-bit ALU — Verilog HDL
 
+- **Name:** Nibhrit Sapkota
+- **Roll No:** 079BEI019
+- **Department:** Electronics, Communication and Information Engineering (BEI)
+- **Assignment:** FPGA Lab Assignment
+
+---
+
 A simple 8-bit Arithmetic Logic Unit (ALU) designed in Verilog HDL, based on a CPU architecture with a 3-bit operation selector.
 
 
