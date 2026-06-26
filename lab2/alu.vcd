@@ -1,0 +1,49 @@
+$date
+	Fri Jun 26 09:22:47 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module alu_tb $end
+$scope module uut $end
+$var wire 8 ! a [7:0] $end
+$var wire 4 " alu_sel [3:0] $end
+$var wire 8 # b [7:0] $end
+$var reg 8 $ alu_result [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11001 $
+b101 #
+b0 "
+b10100 !
+$end
+#10000
+b1111 $
+b1 "
+#20000
+b1100100 $
+b10 "
+#30000
+b100 $
+b11 "
+#40000
+b100 "
+#50000
+b10101 $
+b101 "
+#60000
+b10001 $
+b110 "
+#70000
+b11111011 $
+b111 "
+#80000
+b11101010 $
+b1000 "
+#90000
