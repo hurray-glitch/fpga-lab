@@ -1,25 +1,30 @@
 module alu (
-    input [7:0] a,
-    input [7:0] b,
-    input [3:0] alu_sel,
-    output reg[7:0] alu_result
+    input  [7:0] operand1,
+    input  [7:0] operand2,
+    input  [2:0] aluop,
+    output reg [7:0] aluresult
 );
 
+reg [8:0] temp;
 
-always@(*)
-begin
-    case(alu_sel)
-    4'b0000: alu_result= a + b;
-    4'b0001: alu_result= a - b;
-    4'b0010: alu_result= a * b; // don't enter number thatr results in 16 bit answer
-    4'b0011: alu_result = (b != 0) ? (a / b) : 8'b0;
-    4'b0100: alu_result= a & b;
-    4'b0101: alu_result= a | b;
-    4'b0110: alu_result= a ^ b;
-    4'b0111: alu_result= ~(a & b) ;
-    4'b1000: alu_result= ~(a | b);
-    default: alu_result=8'bxxxxxxxx;
+always @(*) begin
+    case (aluop)
+        3'b000: begin
+            temp      = {1'b0, operand1} + {1'b0, operand2};
+            aluresult = temp[7:0];
+        end
+        3'b001: begin
+            temp      = {1'b0, operand1} - {1'b0, operand2};
+            aluresult = temp[7:0];
+        end
+        3'b010: aluresult = operand1 & operand2;
+        3'b011: aluresult = operand1 | operand2;
+        3'b100: aluresult = operand1 ^ operand2;
+        3'b101: aluresult = ~operand1;
+        3'b110: aluresult = operand1 << 1;
+        3'b111: aluresult = operand1 >> 1;
+        default: aluresult = 8'bxxxxxxxx;
     endcase
 end
-    
+
 endmodule
